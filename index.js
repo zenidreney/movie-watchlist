@@ -13,10 +13,10 @@ function handleSearchBtn(e) {
 
             data.Search.forEach((movie) => {
                 //console.log(movie.Title);
-                
-                 fetch(`https://www.omdbapi.com/?apikey=73de4715&i=${movie.imdbID}`)
+
+                fetch(`https://www.omdbapi.com/?apikey=73de4715&i=${movie.imdbID}`)
                     .then((res) => res.json())
-                    .then((data) => console.log(data))
+                    .then((data) => console.log(data));
 
                 const movieTitle = document.createElement("h3");
                 movieTitle.textContent = movie.Title;
@@ -25,4 +25,3 @@ function handleSearchBtn(e) {
             });
         });
 }
-
