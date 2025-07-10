@@ -16,12 +16,14 @@ function handleSearchBtn(e) {
 
                 fetch(`https://www.omdbapi.com/?apikey=73de4715&i=${movie.imdbID}`)
                     .then((res) => res.json())
-                    .then((data) => console.log(data));
+                    .then((data) => {
+                        console.log(data.Title);
 
-                const movieTitle = document.createElement("h3");
-                movieTitle.textContent = movie.Title;
+                        const movieTitle = document.createElement("h3");
+                        movieTitle.textContent = data.Title;
 
-                resultsContainer.append(movieTitle);
+                        resultsContainer.append(movieTitle);
+                    });
             });
         });
 }
