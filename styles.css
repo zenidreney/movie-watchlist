@@ -93,10 +93,21 @@ form > button {
     display: flex;
     margin: 2em;
     gap: 1em;
+    max-height: 200px;
+}
+
+.results-container > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    
 }
 
 .movie-poster {
-    width: 30%;
+    align-self: center;
+    width: 40%;
+    /*height: auto;*/
+    /*max-width: 180px;*/
     border-radius: 10px;
 }
 
@@ -108,6 +119,7 @@ form > button {
 
 .movie-info-container > h3, p {
     margin: 0 1em 0 0;
+    overflow: hidden;
 }
 
 .movie-info-container > h3 {
