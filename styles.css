@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.results-container > div {
+    display: flex;
+}
+
+
+.movie-poster {
+    width: 99px;
+    height: 148px;
+}
+
+
+.movie-name-container {
+    display: flex;
+    align-items: center;
+    
+}
+
+.movie-name-container > h3 {
+    margin-right: 0.5em;
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: #000000;
+}
+
+.movie-name-container > img {
+    width: 1em;
+    height: 1em;
+}
+
+.movie-name-container > p {
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #111827;
+}

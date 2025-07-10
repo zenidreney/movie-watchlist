@@ -1,24 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
-       <title>Movie Watchlist</title>
-        <!--<link rel="stylesheet" href="index.css">-->
+        <title>Movie Watchlist</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet" />
+            
+            
+            
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
         <h1>Find Your Film</h1>
         <a href="#">My Watchlist</a>
-        
-        <form>
-            <input type="search" id="search-input" name="search-input">
+
+        <form id="search-form">
+            <input type="search" id="search-input" name="search-input" />
             <button id="search-btn">SEARCH</button>
-            
-            <div id="results-container">
+
+            <div id="results-container" class="results-container">
+                
+                <!--Content from index.js handleSearchBtn function through DOM API-->
                 
             </div>
-            
-            
         </form>
-        
+
         <script src="index.js"></script>
     </body>
 </html>
