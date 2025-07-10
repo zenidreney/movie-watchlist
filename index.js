@@ -75,6 +75,7 @@ function handleSearchBtn(e) {
                     
                                 const resumePara = document.createElement("p");
                                 resumePara.textContent = movie.Plot;
+                            
                     
         
                     
