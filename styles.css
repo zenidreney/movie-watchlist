@@ -9,10 +9,7 @@ body {
     margin: 0 auto;
     font-family: "Inter", sans-serif;
     max-width: 820px;
-    
 }
-
-
 
 .icon {
     width: 1rem;
@@ -88,16 +85,33 @@ form > button {
 
 /*RESULTS*/
 
+/*
 .results-container {
+    display: flex;
+    flex-direction: column;
+}
+*/
+
+.movie-container {
     display: grid;
-    grid-template: repeat(4, 1fr) / repeat(6, 1fr);
+    grid-template: 0.2fr 0.3fr repeat(4, 1fr) / repeat(6, 1fr);
     grid-template-areas:
         "pos pos nam nam nam nam"
         "pos pos det det det det"
         "pos pos thm thm thm thm"
+        "pos pos thm thm thm thm"
+        "pos pos thm thm thm thm"
         "pos pos thm thm thm thm";
-    
+    max-height: 180px;
 }
+
+/*
+#movie-container-0 {
+    max-height: none;
+    background-color: red;
+}
+*/
+
 
 .grid-item {
     display: flex;
@@ -106,12 +120,21 @@ form > button {
 .name-box,
 .details-box,
 .theme-box {
-    padding-left: 0.3em;
+    padding: 0 0.3em;
+}
+
+.name-box {
+    padding-top: 1.2em;
+}
+
+.theme-box {
+    padding-bottom: 1.2em;
 }
 
 .poster-box {
     grid-area: pos;
-    background-color: red;
+    max-height: 180px;
+    /*background-color: red;*/
 }
 
 .poster-box > img {
@@ -124,43 +147,41 @@ form > button {
 .name-box {
     align-items: center;
     gap: 0.5em;
-    
+
     grid-area: nam;
-    background-color: blue;
+    /*background-color: blue;*/
 }
 
 .name-box > h3 {
     font-weight: 500;
     font-size: 1.125rem;
+    margin: 0;
 }
 
 .name-box > p {
     font-size: 0.75rem;
 }
 
-.name-box > img { 
+.name-box > img {
     width: 1em;
     height: auto;
 }
 
 .details-box {
     grid-area: det;
-    background-color: yellow;
+    /*background-color: yellow;*/
     align-items: center;
     justify-content: flex-start;
     gap: 1em;
-    
-   
 }
 
 .details-box > p {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 400;
- 
+    margin: 0.3em;
 }
 
 .details-box > button {
-    
     border: none;
     background-color: inherit;
     font-size: 0.75rem;
@@ -178,17 +199,26 @@ form > button {
 
 .theme-box {
     grid-area: thm;
-    background-color: aquamarine;
+    /*background-color: aquamarine;*/
+    padding: 0.2em inherit 2em;
 }
 
 .theme-box > p {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: 400;
-    color: #6B7280;
+    color: #6b7280;
+    overflow: hidden;
+    /*margin: 0;*/
 }
 
+/*Media Queries*/
 
-
+@media (min-width: 450px) {
+    .movie-container,
+    .poster-box {
+        max-height: fit-content;
+    }
+}
 
 /*
 
