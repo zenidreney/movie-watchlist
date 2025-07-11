@@ -4,8 +4,25 @@ const resultsContainer = document.getElementById("results-container");
 document.addEventListener("click", function (e) {
     if (e.target.matches("#search-btn")) {
         handleSearchBtn(e);
+    } else if (e.target.classList.contains("read-more")) {
+        handleReadMore(e);
     }
 });
+
+function readMore() {
+    const themePara = document.querySelectorAll(".theme-para");
+
+    themePara.forEach((para, i) => {
+        //console.log(para.offsetHeight, para.scrollHeight);
+        const readMoreBtn = document.getElementById(`read-more-${i}`);
+
+        if (para.scrollHeight > para.offsetHeight) {
+            //console.log(i, readMoreBtn);
+            readMoreBtn.style.display = "block";
+           
+        }
+    });
+}
 
 function handleSearchBtn(e) {
     e.preventDefault();
@@ -15,26 +32,12 @@ function handleSearchBtn(e) {
         .then((res) => res.json())
         .then((data) => {
             //console.log(data);
-
             data.Search.forEach((movie, i) => {
                 //console.log(movie.Title);
-
                 fetch(`https://www.omdbapi.com/?apikey=73de4715&i=${movie.imdbID}`)
                     .then((res) => res.json())
                     .then((movie) => {
-                        console.log(movie);
-                    
-                    
-                        //const gridItem = document.createElement("div");
-                        //gridItem.className = "grid-item poster-box";
-                    //
-                        //    const moviePoster = document.createElement("img");
-                        //    moviePoster.src = movie.Poster;
-                    //
-                        //gridItem.append(moviePoster);
-                    //
-                    //
-                        //resultsContainer.append(gridItem);
+                        //console.log(movie);
 
                         resultsContainer.innerHTML += `
                         <div class="movie-container" id="movie-container-${i}">
@@ -55,13 +58,14 @@ function handleSearchBtn(e) {
                                 </button>
                             </div>
                             <div class="grid-item theme-box">
-                                <p>
+                                <p class="theme-para">
                                     ${movie.Plot}
                                 </p>
+                                <button class="read-more" id="read-more-${i}">Read More</button>
                             </div>
                         </div>
                         `;
-
+                        //readMore();
                     });
             });
         });
@@ -70,3 +74,27 @@ function handleSearchBtn(e) {
 
     document.getElementById("search-form").reset();
 }
+
+function handleReadMore(e) {
+
+    const eIndex = e.target.id.split("-").pop();
+    //console.log(eIndex);
+    const eContainer = document.getElementById(`movie-container-${eIndex}`);
+    
+    eContainer.classList.toggle("toggle-movie-container");
+    
+    if(e.target.textContent === "Read More") {
+        e.target.textContent = "Read Less";
+    } else if (e.target.textContent === "Read Less") {
+        e.target.textContent = "Read More";
+    }
+}
+
+/*Add the read more buttons for small screens*/
+readMore();
+
+
+
+
+
+
