@@ -103,14 +103,13 @@ form > button {
 
 .movie-container {
     display: grid;
-    grid-template: 0.2fr 0.3fr repeat(4, 1fr) / repeat(6, 1fr);
+    grid-template: 0.2fr 0.3fr repeat(2, 1fr) / repeat(6, 1fr);
     grid-template-areas:
         "pos pos nam nam nam nam"
         "pos pos det det det det"
         "pos pos thm thm thm thm"
         "pos pos thm thm thm thm"
-        "pos pos thm thm thm thm"
-        "pos pos thm thm thm thm";
+       ;
     max-height: 180px;
     border-bottom: 1px solid #d1d5db;
 }
@@ -207,14 +206,17 @@ form > button {
 .theme-box {
     grid-area: thm;
     position: relative;
+    display: flex;
     /*background-color: aquamarine;*/
     padding: 0.2em inherit 2em;
+   
 }
 
 .theme-box > p {
     font-size: 0.75rem;
     font-weight: 400;
     color: #6b7280;
+   
     overflow: hidden;
     /*margin: 0;*/
 }
@@ -224,7 +226,7 @@ form > button {
     bottom: 0;
     right: 0;
     margin: 0;
-    padding: 0;
+    padding: 0 0.3em;
     background-color: inherit;
     border: none;
     color: #272727;

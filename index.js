@@ -9,20 +9,7 @@ document.addEventListener("click", function (e) {
     }
 });
 
-function readMore() {
-    const themePara = document.querySelectorAll(".theme-para");
 
-    themePara.forEach((para, i) => {
-        //console.log(para.offsetHeight, para.scrollHeight);
-        const readMoreBtn = document.getElementById(`read-more-${i}`);
-
-        if (para.scrollHeight > para.offsetHeight) {
-            //console.log(i, readMoreBtn);
-            readMoreBtn.style.display = "block";
-           
-        }
-    });
-}
 
 function handleSearchBtn(e) {
     e.preventDefault();
@@ -65,7 +52,7 @@ function handleSearchBtn(e) {
                             </div>
                         </div>
                         `;
-                        //readMore();
+                        readMore();
                     });
             });
         });
@@ -90,8 +77,24 @@ function handleReadMore(e) {
     }
 }
 
-/*Add the read more buttons for small screens*/
+function readMore() {
+    const themePara = document.querySelectorAll(".theme-para");
+
+    themePara.forEach((para, i) => {
+        console.log(para.offsetHeight, para.scrollHeight, para.clientHeight, window.getComputedStyle(para).lineHeight);
+        const readMoreBtn = document.getElementById(`read-more-${i}`);
+
+        if (para.scrollHeight > para.offsetHeight) {
+            //console.log(i, readMoreBtn);
+            readMoreBtn.style.display = "inline-block";
+           
+        }
+    });
+}
+
 readMore();
+
+
 
 
 
