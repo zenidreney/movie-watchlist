@@ -1,4 +1,5 @@
-export function renderMovies(movie, container) {
+export function renderMovies(movie, container, addOrRemoveIcon) {
+    
     container.innerHTML += `
                         <div class="movie-container" id="movie-container-${movie.imdbID}">
                             <div class="grid-item poster-box">
@@ -13,7 +14,7 @@ export function renderMovies(movie, container) {
                                 <p>${movie.Runtime}</p>
                                 <p>${movie.Genre}</p>
                                 <button id="add-watch-${movie.imdbID}">
-                                    <img src="media/plus.png" />
+                                    <img src=${addOrRemoveIcon} />
                                     Watchlist
                                 </button>
                             </div>

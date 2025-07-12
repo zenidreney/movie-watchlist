@@ -39,7 +39,7 @@ function handleSearchBtn(e) {
                     .then((res) => res.json())
                     .then((movie) => {
                         //console.log(movie);
-                        renderMovies(movie, resultsContainer);
+                        renderMovies(movie, resultsContainer, "./media/plus.png");
                     });
             });
         });
