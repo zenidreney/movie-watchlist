@@ -78,11 +78,8 @@ form {
 
 hr.vertical {
     height: 3rem;
-    /*align-self: stretch;*/
-
     margin: 0;
     padding: 0;
-
     border-left: 1px solid #d1d5db;
 }
 
@@ -93,13 +90,6 @@ form > button {
 }
 
 /*RESULTS*/
-
-/*
-.results-container {
-    display: flex;
-    flex-direction: column;
-}
-*/
 
 .movie-container {
     display: grid;
@@ -116,7 +106,6 @@ form > button {
 
 .toggle-movie-container {
     max-height: none;
-    /*background-color: red;*/
 }
 
 .grid-item {
@@ -208,17 +197,26 @@ form > button {
     position: relative;
     display: flex;
     /*background-color: aquamarine;*/
-   
-   
 }
+
+
 
 .theme-box > p {
     font-size: 0.75rem;
     font-weight: 400;
     color: #6b7280;
-   
     overflow: hidden;
     /*margin: 0;*/
+}
+
+.theme-box > p::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to bottom, transparent, white);
 }
 
 .read-more {
