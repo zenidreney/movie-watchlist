@@ -12,8 +12,8 @@ document.addEventListener("click", function (e) {
         handleSearchBtn(e);
     } else if (e.target.classList.contains("read-more")) {
         handleReadMore(e);
-    } else if (e.target.id.startsWith("add-watch")) {
-        const imdbID = e.target.id.replace("add-watch-", "");
+    } else if (e.target.id.startsWith("add-remove")) {
+        const imdbID = e.target.id.replace("add-remove-", "");
         if (!myWatchlist.includes(imdbID)) {
             myWatchlist.unshift(imdbID);
             saveMoviesLocally();
@@ -50,7 +50,7 @@ function handleSearchBtn(e) {
                     .then((res) => res.json())
                     .then((movie) => {
                         //console.log(movie);
-                        renderMovies(movie, resultsContainer, "./media/plus.png");
+                        renderMovies(movie, resultsContainer, "./media/plus.png", "Watchlist");
                     });
             });
         });
