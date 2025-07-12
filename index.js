@@ -1,4 +1,5 @@
 import { renderMovies } from "./renderMovies.js";
+import { handleReadMore } from "./handleReadMore.js";
 
 const mySavedMovies = localStorage.getItem("savedMovies");
 let myWatchlist = mySavedMovies ? JSON.parse(mySavedMovies) : [];
@@ -57,18 +58,4 @@ function handleSearchBtn(e) {
     /*Reset form field*/
 
     document.getElementById("search-form").reset();
-}
-
-function handleReadMore(e) {
-    const eIndex = e.target.id.split("-").pop();
-    //console.log(eIndex);
-    const eContainer = document.getElementById(`movie-container-${eIndex}`);
-
-    eContainer.classList.toggle("toggle-movie-container");
-
-    if (e.target.textContent === "Read More") {
-        e.target.textContent = "Read Less";
-    } else if (e.target.textContent === "Read Less") {
-        e.target.textContent = "Read More";
-    }
 }
