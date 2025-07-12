@@ -6,7 +6,6 @@ let myWatchlist = mySavedMovies ? JSON.parse(mySavedMovies) : [];
 const searchInput = document.getElementById("search-input");
 const resultsContainer = document.getElementById("results-container");
 
-
 document.addEventListener("click", function (e) {
     if (e.target.matches("#search-btn")) {
         handleSearchBtn(e);
@@ -32,7 +31,18 @@ function handleSearchBtn(e) {
     fetch(`https://www.omdbapi.com/?apikey=73de4715&s=${searchInput.value}`)
         .then((res) => res.json())
         .then((data) => {
-            //console.log(data);
+            console.log(data);
+
+            if (data.Response === "False") {
+                resultsContainer.innerHTML = `
+                <div class="landing-container">
+                    
+                    <p>Unable to find what you’re looking for. Please try another search.</p>
+                </div>
+                `;
+                return;
+            }
+
             data.Search.forEach((movie, i) => {
                 //console.log(movie.Title);
                 fetch(`https://www.omdbapi.com/?apikey=73de4715&i=${movie.imdbID}`)

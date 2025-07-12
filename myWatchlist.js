@@ -1,12 +1,10 @@
 import { renderMovies } from "./renderMovies.js";
 
 const mySavedMovies = localStorage.getItem("savedMovies");
-
+const resultsContainer = document.getElementById("results-container");
 let myWatchlist = mySavedMovies ? JSON.parse(mySavedMovies) : [];
 
-const resultsContainer = document.getElementById("results-container");
-
-console.log(myWatchlist);
+//console.log(myWatchlist);
 
 document.addEventListener("click", function (e) {
     if (e.target.classList.contains("read-more")) {
@@ -41,7 +39,6 @@ if (myWatchlist.length > 0) {
             .then((res) => res.json())
             .then((movie) => {
                 //console.log(movie);
-
                 renderMovies(movie, resultsContainer, "./media/minus.png");
             });
     });
