@@ -13,11 +13,22 @@ document.addEventListener("click", function (e) {
     } else if (e.target.classList.contains("read-more")) {
         handleReadMore(e);
     } else if (e.target.id.startsWith("add-remove")) {
+        /*UI*/
+        const movieAdded = document.getElementById("movie-added");
+        console.log("added");
+        movieAdded.classList.add("visible");
+        setTimeout(function(){
+            movieAdded.classList.remove("visible");
+        }, 2000);
+        
+        
         const imdbID = e.target.id.replace("add-remove-", "");
         if (!myWatchlist.includes(imdbID)) {
             myWatchlist.unshift(imdbID);
             saveMoviesLocally();
         } else return;
+        
+        
     }
 });
 
