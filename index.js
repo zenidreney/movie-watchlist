@@ -40,7 +40,7 @@ function handleSearchBtn(e) {
     e.preventDefault();
     resultsContainer.innerHTML = "";
 
-    fetch(`https://www..com/?apikey=73de4715&s=${searchInput.value}`) /*Deleted the URL for error handling test*/
+    fetch(`https://www.omdbapi.com/?apikey=73de4715&s=${searchInput.value}`) /*Deleted the URL for error handling test*/
         .then((res) => res.json())
         .then((data) => {
             //console.log(data);
@@ -65,7 +65,18 @@ function handleSearchBtn(e) {
                     });
             });
         })
-        .catch(err => console.log("err"));
+        .catch(err => {
+        
+                        //console.log("err")
+        
+                        resultsContainer.innerHTML = `
+                            <div class="landing-container">
+                                <p>Something went wrong. Please try again later.</p>
+                            </div>
+                            `;
+                      
+                      
+                      });
 
     /*Reset form field*/
 
