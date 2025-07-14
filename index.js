@@ -40,10 +40,10 @@ function handleSearchBtn(e) {
     e.preventDefault();
     resultsContainer.innerHTML = "";
 
-    fetch(`https://www.omdbapi.com/?apikey=73de4715&s=${searchInput.value}`)
+    fetch(`https://www..com/?apikey=73de4715&s=${searchInput.value}`) /*Deleted the URL for error handling test*/
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
+            //console.log(data);
 
             if (data.Response === "False") {
                 resultsContainer.innerHTML = `
@@ -64,7 +64,8 @@ function handleSearchBtn(e) {
                         renderMovies(movie, resultsContainer, "./media/plus.png", "Watchlist");
                     });
             });
-        });
+        })
+        .catch(err => console.log("err"));
 
     /*Reset form field*/
 
