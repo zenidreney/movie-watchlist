@@ -17,18 +17,15 @@ document.addEventListener("click", function (e) {
         const movieAdded = document.getElementById("movie-added");
         console.log("added");
         movieAdded.classList.add("visible");
-        setTimeout(function(){
+        setTimeout(function () {
             movieAdded.classList.remove("visible");
         }, 2000);
-        
-        
+
         const imdbID = e.target.id.replace("add-remove-", "");
         if (!myWatchlist.includes(imdbID)) {
             myWatchlist.unshift(imdbID);
             saveMoviesLocally();
         } else return;
-        
-        
     }
 });
 
@@ -40,43 +37,52 @@ function handleSearchBtn(e) {
     e.preventDefault();
     resultsContainer.innerHTML = "";
 
-    fetch(`https://www.omdbapi.com/?apikey=73de4715&s=${searchInput.value}`) /*Deleted the URL for error handling test*/
-        .then((res) => res.json())
+    fetch(`https://www.omdbapi.com/?apikey=73de4715&s=${searchInput.value}`)
+        .then((res) => {
+            //console.log(res.status);
+            if (!res.ok) {
+                throw Error(`Error code: ${res.status} could not get search results!`);
+            }
+            return res.json();
+        })
         .then((data) => {
             //console.log(data);
-
             if (data.Response === "False") {
                 resultsContainer.innerHTML = `
-                <div class="landing-container">
-                    
-                    <p>Unable to find what you’re looking for. Please try another search.</p>
-                </div>
-                `;
+                            <div class="landing-container">
+                                <p>Unable to find what you’re looking for. Please try another search.</p>
+                            </div>
+                            `;
                 return;
             }
-
             data.Search.forEach((movie, i) => {
                 //console.log(movie.Title);
                 fetch(`https://www.omdbapi.com/?apikey=73de4715&i=${movie.imdbID}`)
-                    .then((res) => res.json())
+                    .then((res) => {
+                        if (!res.ok) {
+                            throw Error(`Error code: ${res.status} could not get movie!`);
+                        }
+                        return res.json();
+                    })
                     .then((movie) => {
-                        //console.log(movie);
+                        console.log(movie);
                         renderMovies(movie, resultsContainer, "./media/plus.png", "Watchlist");
+                    })
+                    .catch((err) => {
+                        /*In this case the rejected movie will simply not show.
+                         * For a bigger project I would add an UI prompt*/
+                        console.log(err);
                     });
             });
         })
-        .catch(err => {
-        
-                        //console.log("err")
-        
-                        resultsContainer.innerHTML = `
+        .catch((err) => {
+            console.log(err);
+            resultsContainer.innerHTML = `
                             <div class="landing-container">
                                 <p>Something went wrong. Please try again later.</p>
                             </div>
                             `;
-                      
-                      
-                      });
+        });
 
     /*Reset form field*/
 
