@@ -55,23 +55,29 @@ function handleSearchBtn(e) {
                             `;
                 return;
             }
-            data.Search.forEach((movie, i) => {
+            data.Search.forEach((movie) => {
                 //console.log(movie.Title);
                 fetch(`https://www.omdbapi.com/?apikey=73de4715&i=${movie.imdbID}`)
                     .then((res) => {
+                        //console.log(res);
                         if (!res.ok) {
                             throw Error(`Error code: ${res.status} could not get movie!`);
                         }
                         return res.json();
                     })
-                    .then((movie) => {
-                        console.log(movie);
-                        renderMovies(movie, resultsContainer, "./media/plus.png", "Watchlist");
+                    .then((singleMovie) => {
+                        console.log(singleMovie);
+                        if (singleMovie.Response === "False") {
+                            throw Error(`${movie.Title} response false. imdbID: ${movie.imdbID} is not valid!`);
+                        }
+                        renderMovies(singleMovie, resultsContainer, "./media/plus.png", "Watchlist");
                     })
                     .catch((err) => {
-                        /*In this case the rejected movie will simply not show.
-                         * For a bigger project I would add an UI prompt*/
-                        console.log(err);
+                        console.log(err, movie.imdbID, movie.Title);
+                        resultsContainer.innerHTML += `<div>
+                                <p>${movie.Title} cannot be reached.</p>
+                            </div>
+                            `;
                     });
             });
         })
