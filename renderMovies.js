@@ -1,4 +1,4 @@
-//renderMovies(movieObject, div, img, text string)
+//renderMovies({ movieObject }, <div>, "img", "text string")
 export function renderMovies(movie, container, addOrRemoveIcon, addRemoveText) {
     
     container.innerHTML += `
