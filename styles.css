@@ -20,8 +20,11 @@ body {
 
 button:hover,
 button:focus {
+    /*
     background-color: rgba(255, 251, 52, 0.8);
     border-radius: 2px;
+    */
+    filter: brightness(0.9);
    
     cursor: pointer;
   
