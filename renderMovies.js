@@ -4,7 +4,9 @@ export function renderMovies(movie, container, addOrRemoveIcon, addRemoveText) {
     container.innerHTML += `
                         <div class="movie-container" id="movie-container-${movie.imdbID}">
                             <div class="grid-item poster-box">
-                                <img src="${movie.Poster === "N/A" ? "./media/movieicon.png" : movie.Poster}"/>
+                                <img 
+                                onerror="this.onerror = null; this.src='media/movieicon.png'"
+                                src="${movie.Poster === "N/A" ? "./media/movieicon.png" : movie.Poster}"/>
                             </div>
                             <div class="grid-item name-box">
                                 <h3>${movie.Title} </h3>
