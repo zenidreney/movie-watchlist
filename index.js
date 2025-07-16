@@ -73,7 +73,7 @@ function handleSearchBtn(e) {
                         renderMovies(singleMovie, resultsContainer, "./media/plus.png", "Watchlist");
                     })
                     .catch((err) => {
-                        console.log(err, movie.imdbID, movie.Title);
+                        console.error(err, movie.imdbID, movie.Title);
                         resultsContainer.innerHTML += `<div>
                                 <p>${movie.Title} cannot be reached.</p>
                             </div>
@@ -82,7 +82,7 @@ function handleSearchBtn(e) {
             });
         })
         .catch((err) => {
-            console.log(err);
+            console.error(err);
             resultsContainer.innerHTML = `
                             <div class="landing-container">
                                 <p>Something went wrong. Please try again later.</p>
