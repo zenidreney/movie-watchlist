@@ -224,6 +224,7 @@ form > button {
     display: flex;
     align-items: center;
     gap: 0.3em;
+    z-index: 60;
     cursor: pointer;
 }
 
