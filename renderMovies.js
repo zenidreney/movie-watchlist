@@ -14,7 +14,7 @@ export function renderMovies(movie, container, addOrRemoveIcon, addRemoveText) {
                                 <p>${movie.imdbRating}</p>
                             </div>
                             <div class="grid-item details-box">
-                                <p>${movie.Runtime}</p>
+                                <time datetime="${movie.Year}">${movie.Year}</time>
                                 <p>${movie.Genre}</p>
                                 <button id="add-remove-${movie.imdbID}">
                                     <img src=${addOrRemoveIcon} />

@@ -217,6 +217,12 @@ form > button {
     margin: 0.3em;
 }
 
+time {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0.3em;
+}
+
 .details-box > button {
     border: none;
     background-color: inherit;
