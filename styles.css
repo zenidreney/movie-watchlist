@@ -37,7 +37,7 @@ header {
     justify-content: space-around;
     background: #000 url("media/film.jpg");
     background-size: cover;
-    /*background-position: 50% 30%;*/
+    background-position: 50% 30%;
     height: 18vh;
     opacity: 200%;
     z-index: 0;
@@ -368,7 +368,9 @@ time {
 
 @media (min-width: 449px) {
     
-   
+    header {
+        background-position: top;
+    }
     
     .movie-container,
     .poster-box {
