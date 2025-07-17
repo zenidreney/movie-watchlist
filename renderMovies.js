@@ -5,7 +5,10 @@ export function renderMovies(movie, container, addOrRemoveIcon, addRemoveText) {
                         <div class="movie-container" id="movie-container-${movie.imdbID}">
                             <div class="grid-item poster-box">
                                 <img 
-                                onerror="this.onerror = null; this.src='media/movieicon.png'"
+                                onerror="this.onerror = null;
+                                        this.src='media/movieicon.png'
+                                        this.classList.add('broken-img')"
+                                ${movie.Poster === "N/A" ? "class='broken-img'" : "class=''"}
                                 src="${movie.Poster === "N/A" ? "./media/movieicon.png" : movie.Poster}"/>
                             </div>
                             <div class="grid-item name-box">

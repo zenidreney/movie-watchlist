@@ -184,6 +184,12 @@ form > button {
     border-radius: 10px;
 }
 
+.poster-box > .broken-img {
+    width: min-content;
+  
+    margin: auto;
+}
+
 .name-box {
     align-items: center;
     gap: 0.5em;
@@ -322,6 +328,8 @@ time {
     transition: opacity 0.8s ease;
 }
 
+
+
 /*Media Queries*/
 
 @media (min-width: 449px) {
@@ -329,11 +337,19 @@ time {
     .poster-box {
         max-height: fit-content;
     }
+    
+    .poster-box > .broken-img {
+    width: 60%;
+  text-align: center;
+    margin-top: 1em;
+}
 
     .theme-box > p {
         font-size: 0.85rem;
         margin: 0.85em 0;
     }
+    
+    
 }
 
 /*
