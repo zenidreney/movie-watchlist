@@ -31,6 +31,9 @@ export function renderMovies(movie, container, addOrRemoveIcon, addRemoveText) {
                             <div class="grid-item theme-box" id="theme-box-${movie.imdbID}">
                                 <p class="theme-para" id="theme-para-${movie.imdbID}">
                                     ${movie.Plot}
+                                
+                                    <span class="u-mt"><strong>Cast:</strong> ${movie.Actors}</span>
+                                    <span class="u-mt-0"><strong>Director(s):</strong> ${movie.Director}</span>
                                 </p>
                                 <button class="read-more" id="read-more-${movie.imdbID}">Read More</button>
                             </div>
