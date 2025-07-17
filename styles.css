@@ -20,19 +20,9 @@ dt > p {
     margin: 0.1em 0;
 }
 
-.icon {
-    width: 1rem;
-    height: 1rem;
-    background-color: white;
-    /*margin: 0 1em;*/
-}
-
 button:hover,
 button:focus {
-    /*
-    background-color: rgba(255, 251, 52, 0.8);
-    border-radius: 2px;
-    */
+   
     filter: brightness(0.9);
 
     cursor: pointer;
@@ -47,7 +37,7 @@ header {
     justify-content: space-around;
     background: #000 url("media/film.jpg");
     background-size: cover;
-    background-position: 50% 30%;
+    /*background-position: 50% 30%;*/
     height: 18vh;
     opacity: 200%;
     z-index: 0;
@@ -87,29 +77,51 @@ header > a:focus {
 
 form {
     position: relative;
+    /*box-sizing: content-box;*/
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 0.6em;
-    padding: 0 1em;
+    /*padding: 0.2em 0.4em;*/
     background-color: white;
     border: 1px solid #d1d5db;
     border-radius: 5px;
     width: fit-content;
+
+    height: 48px;
     margin: -18px auto 0;
     z-index: 100;
 }
 
+
+.icon {
+    width: 1rem;
+    height: 1rem;
+    background-color: inherit;
+    margin-left: 1.2em;
+}
+
+
+
+/*
 hr.vertical {
     height: 3rem;
     margin: 0;
     padding: 0;
     border-left: 1px solid #d1d5db;
 }
+*/
+
+
+
 
 form > button {
     border: none;
     background: inherit;
+    border-left: 1px solid #d1d5db;
+    min-width: 105px;
+    height: 100%;
+    /*padding: 0 1em;*/
 }
 
 /*Landing*/
@@ -196,7 +208,7 @@ form > button {
 
 .poster-box > .broken-img {
     width: min-content;
-  
+
     margin: auto;
 }
 
@@ -344,7 +356,6 @@ time {
     color: #272727;
     display: block;
     margin-top: 1em;
-    
 }
 
 .u-mt-0 {
@@ -353,27 +364,27 @@ time {
     margin-top: 0.1em;
 }
 
-
 /*Media Queries*/
 
 @media (min-width: 449px) {
+    
+   
+    
     .movie-container,
     .poster-box {
         max-height: fit-content;
     }
-    
+
     .poster-box > .broken-img {
-    width: 60%;
-  text-align: center;
-    margin-top: 1em;
-}
+        width: 60%;
+        text-align: center;
+        margin-top: 1em;
+    }
 
     .theme-box > p {
         font-size: 0.85rem;
         margin: 0.85em 0;
     }
-    
-    
 }
 
 /*
