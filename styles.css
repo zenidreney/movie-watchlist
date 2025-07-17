@@ -70,7 +70,17 @@ a {
 
 header > a {
     text-decoration: none;
+    color: #000;
+    border: 1px solid #fff;
+    padding: 0.2em 0.4em;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+header > a:hover,
+header > a:focus {
     color: #fff;
+    background: rgba(0, 0, 0, 0);
 }
 
 /*SEARCH-BAR*/
