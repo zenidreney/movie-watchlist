@@ -98,7 +98,7 @@ form {
     width: 1rem;
     height: 1rem;
     background-color: inherit;
-    margin-left: 1.2em;
+    margin-left: 1em;
 }
 
 
@@ -119,7 +119,7 @@ form > button {
     border: none;
     background: inherit;
     border-left: 1px solid #d1d5db;
-    min-width: 105px;
+    min-width: 95px;
     height: 100%;
     /*padding: 0 1em;*/
 }

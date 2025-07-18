@@ -36,6 +36,17 @@ function saveMoviesLocally() {
 function handleSearchBtn(e) {
     e.preventDefault();
     resultsContainer.innerHTML = "";
+    
+    if(!searchInput.value.trim()) {
+        console.log("do something");
+        searchInput.focus();
+         resultsContainer.innerHTML = `
+                            <div class="landing-container">
+                                <p>Please type in a movie to search.</p>
+                            </div>
+                            `;
+        return;
+    }
 
     fetch(`https://www.omdbapi.com/?apikey=73de4715&s=${searchInput.value}`)
         .then((res) => {
