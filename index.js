@@ -13,19 +13,26 @@ document.addEventListener("click", function (e) {
     } else if (e.target.classList.contains("read-more")) {
         handleReadMore(e);
     } else if (e.target.id.startsWith("add-remove")) {
-        /*UI*/
-        const movieAdded = document.getElementById("movie-added");
-        console.log("added");
-        movieAdded.classList.add("visible");
-        setTimeout(function () {
-            movieAdded.classList.remove("visible");
-        }, 2000);
-
         const imdbID = e.target.id.replace("add-remove-", "");
         if (!myWatchlist.includes(imdbID)) {
             myWatchlist.unshift(imdbID);
             saveMoviesLocally();
-        } else return;
+
+            /*UI*/
+            const movieAdded = document.getElementById("movie-added");
+            //console.log("added");
+            movieAdded.classList.add("visible");
+            setTimeout(function () {
+                movieAdded.classList.remove("visible");
+            }, 2000);
+        } else {
+            const movieAlready = document.getElementById("movie-already");
+            //console.log(movieAlready);
+            movieAlready.classList.add("visible");
+            setTimeout(function () {
+                movieAlready.classList.remove("visible");
+            }, 2000);
+        }
     }
 });
 
@@ -36,11 +43,11 @@ function saveMoviesLocally() {
 function handleSearchBtn(e) {
     e.preventDefault();
     resultsContainer.innerHTML = "";
-    
-    if(!searchInput.value.trim()) {
+
+    if (!searchInput.value.trim()) {
         console.log("do something");
         searchInput.focus();
-         resultsContainer.innerHTML = `
+        resultsContainer.innerHTML = `
                             <div class="landing-container">
                                 <p>Please type in a movie to search.</p>
                             </div>
